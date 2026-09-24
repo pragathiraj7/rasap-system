@@ -1,0 +1,490 @@
+/* ==========================================================================
+   RASAP - Rajagiri Study Abroad Program
+   Dashboard & Portal Layout Stylesheet (dashboard.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DASHBOARD SHELL LAYOUT
+   -------------------------------------------------------------------------- */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 120px);
+  background-color: var(--bg-main);
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+  background-color: var(--navy-primary);
+  color: var(--cream-primary);
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(225, 220, 201, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-header-title h4 {
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-bottom: 0.1rem;
+}
+
+.sidebar-header-title span {
+  font-size: 0.78rem;
+  color: var(--cream-primary);
+  opacity: 0.85;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  color: var(--cream-primary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(225, 220, 201, 0.12);
+  color: var(--white);
+}
+
+.sidebar-link.active {
+  background-color: var(--cream-primary);
+  color: var(--navy-primary);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+}
+
+.sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(225, 220, 201, 0.15);
+}
+
+.sidebar-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+}
+
+.user-avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--cream-primary);
+  color: var(--navy-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.user-info-sm h5 {
+  color: var(--white);
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.user-info-sm span {
+  color: var(--cream-primary);
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   2. MAIN DASHBOARD CONTENT AREA
+   -------------------------------------------------------------------------- */
+.dashboard-main {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.dashboard-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-title h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.page-title p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Welcome Student Info Banner */
+.student-profile-banner {
+  background: linear-gradient(135deg, var(--navy-primary) 0%, #151F6D 100%);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.student-profile-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(225, 220, 201, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.banner-welcome h3 {
+  color: var(--cream-primary);
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.banner-welcome p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(225, 220, 201, 0.2);
+}
+
+.info-item span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--cream-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.info-item strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. METRIC SUMMARY CARDS
+   -------------------------------------------------------------------------- */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--navy-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-card.accent-cream {
+  border-top-color: var(--cream-dark);
+}
+
+.metric-data h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.3rem;
+}
+
+.metric-data .value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  line-height: 1;
+}
+
+.metric-data .subtext {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.metric-badge-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--cream-light);
+  color: var(--navy-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. DASHBOARD ANALYTICS (CSS-ONLY BAR CHART)
+   -------------------------------------------------------------------------- */
+.chart-section {
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chart-header h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.css-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chart-bar-group {
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bar-dept-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy-primary);
+}
+
+.bar-track {
+  background-color: var(--cream-light);
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  position: relative;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, var(--navy-primary) 0%, var(--navy-light) 100%);
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.6s ease-in-out;
+}
+
+.bar-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   5. TIMELINE & ACTIVITY CARDS
+   -------------------------------------------------------------------------- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--cream-dark);
+}
+
+.timeline-item {
+  position: relative;
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.75rem;
+  top: 1.5rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--navy-primary);
+  border: 3px solid var(--cream-primary);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  color: var(--navy-primary);
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. LOGIN SCREEN STYLES (FRONTEND PROTOTYPE)
+   -------------------------------------------------------------------------- */
+.login-body {
+  background-color: var(--cream-light);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.login-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  border-top: 6px solid var(--navy-primary);
+}
+
+.login-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-logo {
+  height: 70px;
+  margin: 0 auto 1rem auto;
+  object-fit: contain;
+}
+
+.login-brand h2 {
+  font-size: 1.4rem;
+  color: var(--navy-primary);
+  margin-bottom: 0.2rem;
+}
+
+.login-brand p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-primary);
+  margin-bottom: 0.4rem;
+}
+
+.form-control, .form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  color: var(--text-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--navy-primary);
+  box-shadow: 0 0 0 3px rgba(12, 19, 79, 0.1);
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.form-footer a {
+  color: var(--navy-primary);
+  text-decoration: underline;
+}

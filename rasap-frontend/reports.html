@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consolidated Student Reports | RASAP Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Layered Institutional Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="utility-container">
+      <div class="utility-left">
+        <div class="utility-item">
+          <span>Student Profile:</span>
+          <strong>Alex Varghese (RASAP20260482)</strong>
+        </div>
+        <div class="utility-item">
+          <span>Institution:</span>
+          <strong>Rajagiri College of Social Sciences, Kochi</strong>
+        </div>
+      </div>
+      <div class="utility-right">
+        <span class="utility-badge">Official Verifiable Record</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <img src="assets/rasap-logo.png" alt="RASAP Logo - Rajagiri Study Abroad Program" class="rasap-logo">
+        <div class="brand-text">
+          <h1>Consolidated Student Progress Report</h1>
+          <p>Rajagiri Study Abroad Program &bull; Official Profile Summary</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="student-dashboard.html" class="btn btn-outline btn-sm">&larr; Dashboard</a>
+        <button type="button" class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Print / Download PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav-bar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="student-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li class="nav-item"><a href="academic.html" class="nav-link">Academic Records</a></li>
+        <li class="nav-item"><a href="activities.html" class="nav-link">Activities</a></li>
+        <li class="nav-item"><a href="mentoring.html" class="nav-link">Mentoring</a></li>
+        <li class="nav-item"><a href="e-docet.html" class="nav-link">E-Docet Vault</a></li>
+        <li class="nav-item"><a href="reports.html" class="nav-link active">Reports</a></li>
+      </ul>
+      <button type="button" class="nav-portal-btn" onclick="window.print()">Print Official Report</button>
+    </div>
+  </nav>
+
+  <!-- Shell Layout -->
+  <div class="dashboard-wrapper">
+
+    <!-- Sidebar Menu -->
+    <aside class="dashboard-sidebar">
+      <div>
+        <div class="sidebar-header">
+          <div class="sidebar-header-title">
+            <h4>Reports Module</h4>
+            <span>Official Documentation</span>
+          </div>
+        </div>
+
+        <div class="sidebar-menu">
+          <a href="student-dashboard.html" class="sidebar-link">
+            <span class="sidebar-icon">📊</span> Dashboard
+          </a>
+          <a href="reports.html" class="sidebar-link active">
+            <span class="sidebar-icon">📄</span> Consolidated Profile
+          </a>
+          <a href="academic.html" class="sidebar-link">
+            <span class="sidebar-icon">🎓</span> Academic Transcript
+          </a>
+          <a href="e-docet.html" class="sidebar-link">
+            <span class="sidebar-icon">📁</span> E-Docet Portfolio
+          </a>
+          <a href="mentoring.html" class="sidebar-link">
+            <span class="sidebar-icon">🤝</span> Faculty Evaluation
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+      <div class="dashboard-header-bar">
+        <div class="page-title">
+          <h2>Continuous Student Verification Dossier</h2>
+          <p>Consolidated 3-year performance report prepared for international study abroad applications.</p>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="window.print()">Export Official PDF &rarr;</button>
+      </div>
+
+      <!-- Printable Report Sheet Container -->
+      <div class="card" style="padding: 2.5rem; border: 2px solid var(--cream-dark); max-width: 950px; margin: 0 auto; box-shadow: var(--shadow-md); background-color: var(--white);">
+        
+        <!-- Document Institutional Banner Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 3px double var(--navy-primary); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <img src="assets/rasap-logo.png" alt="RASAP Logo" style="height: 65px; object-fit: contain;">
+            <div>
+              <h2 style="font-size: 1.4rem; color: var(--navy-primary); margin-bottom: 0.1rem;">RAJAGIRI COLLEGE OF SOCIAL SCIENCES</h2>
+              <h4 style="font-size: 0.95rem; color: var(--navy-light); margin-bottom: 0.1rem; font-weight: 600;">Rajagiri Study Abroad Program (RASAP)</h4>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Autonomous Institutional Student Monitoring System &bull; Kochi, Kerala</span>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <span class="badge badge-approved" style="display: block; font-size: 0.82rem; margin-bottom: 0.3rem;">VERIFIED DOSSIER</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Ref: RASAP/2026/REP-0482</span>
+          </div>
+        </div>
+
+        <!-- Student Identification Matrix -->
+        <div style="background-color: var(--cream-light); border: 1px solid var(--cream-dark); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 2rem;">
+          <h4 style="color: var(--navy-primary); margin-bottom: 0.75rem; text-transform: uppercase; font-size: 0.88rem; letter-spacing: 0.04em;">I. Student &amp; Academic Identity</h4>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; font-size: 0.9rem;">
+            <div><span>Student Name:</span> <strong style="display: block; color: var(--navy-primary);">Alex Varghese</strong></div>
+            <div><span>RASAP ID:</span> <strong style="display: block; color: var(--navy-primary);">RASAP20260482</strong></div>
+            <div><span>Student ID:</span> <strong style="display: block; color: var(--navy-primary);">RCSS-2026-CS-042</strong></div>
+            
+            <div><span>Degree Programme:</span> <strong style="display: block; color: var(--text-dark);">B.Sc. Computer Science</strong></div>
+            <div><span>Department:</span> <strong style="display: block; color: var(--text-dark);">Computer Applications</strong></div>
+            <div><span>RASAP Batch:</span> <strong style="display: block; color: var(--text-dark);">2024 - 2027</strong></div>
+
+            <div><span>Current Progress:</span> <strong style="display: block; color: var(--text-dark);">Semester 5 (Year 3)</strong></div>
+            <div><span>Assigned Mentor:</span> <strong style="display: block; color: var(--text-dark);">Dr. Anjali Menon</strong></div>
+            <div><span>Batch Coordinator:</span> <strong style="display: block; color: var(--text-dark);">Dr. Thomas Mathew</strong></div>
+          </div>
+        </div>
+
+        <!-- Academic Performance Summary -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="color: var(--navy-primary); margin-bottom: 0.75rem; text-transform: uppercase; font-size: 0.88rem; letter-spacing: 0.04em;">II. Cumulative Academic Record</h4>
+          
+          <table class="data-table" style="font-size: 0.88rem;">
+            <thead>
+              <tr>
+                <th>Semester</th>
+                <th>Academic Year</th>
+                <th>SGPA</th>
+                <th>CGPA</th>
+                <th>Attendance</th>
+                <th>Evaluation Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Semester 1</td>
+                <td>2024 - 2025</td>
+                <td>8.60</td>
+                <td>8.60</td>
+                <td>92%</td>
+                <td>Verified &bull; Passed</td>
+              </tr>
+              <tr>
+                <td>Semester 2</td>
+                <td>2024 - 2025</td>
+                <td>8.84</td>
+                <td>8.72</td>
+                <td>91%</td>
+                <td>Verified &bull; Passed</td>
+              </tr>
+              <tr>
+                <td>Semester 3</td>
+                <td>2025 - 2026</td>
+                <td>8.65</td>
+                <td>8.70</td>
+                <td>90%</td>
+                <td>Verified &bull; Passed</td>
+              </tr>
+              <tr>
+                <td>Semester 4</td>
+                <td>2025 - 2026</td>
+                <td>8.90</td>
+                <td>8.75</td>
+                <td>93%</td>
+                <td>Verified &bull; Passed</td>
+              </tr>
+              <tr>
+                <td>Semester 5</td>
+                <td>2026 - 2027</td>
+                <td>8.50</td>
+                <td>8.72</td>
+                <td>89%</td>
+                <td>In Progress (Mid-Term)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Co-Curricular & E-Docet Summary -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+          
+          <div style="border: 1px solid var(--border-light); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h4 style="color: var(--navy-primary); margin-bottom: 0.75rem; font-size: 0.88rem; text-transform: uppercase;">III. Co-Curricular Summary</h4>
+            <ul style="font-size: 0.88rem; line-height: 1.8;">
+              <li>&bull; <strong>Workshops Attended:</strong> 4 Sessions</li>
+              <li>&bull; <strong>Certifications Earned:</strong> 3 Verified</li>
+              <li>&bull; <strong>Industry Internships:</strong> 2 Completed</li>
+              <li>&bull; <strong>Paper Presentations:</strong> 1 Competition Prize</li>
+              <li>&bull; <strong>Community Volunteering:</strong> Active Member</li>
+            </ul>
+          </div>
+
+          <div style="border: 1px solid var(--border-light); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h4 style="color: var(--navy-primary); margin-bottom: 0.75rem; font-size: 0.88rem; text-transform: uppercase;">IV. E-Docet Verification Status</h4>
+            <ul style="font-size: 0.88rem; line-height: 1.8;">
+              <li>&bull; <strong>Total Uploads:</strong> 18 Documents</li>
+              <li>&bull; <strong>Verified &amp; Read-Only:</strong> 16 Files</li>
+              <li>&bull; <strong>Pending Reviews:</strong> 1 File</li>
+              <li>&bull; <strong>Returned for Revision:</strong> 1 File</li>
+              <li>&bull; <strong>Document Vault Integrity:</strong> 100% Verifiable</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Signatures & Institutional Endorsement -->
+        <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: flex-end;">
+          <div style="text-align: center;">
+            <div style="font-weight: 700; color: var(--navy-primary); margin-bottom: 2.5rem;">[ Dr. Anjali Menon ]</div>
+            <span style="display: block; font-size: 0.82rem; color: var(--text-dark); border-top: 1px solid var(--text-dark); padding-top: 0.3rem;">Faculty Mentor Signature</span>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="font-weight: 700; color: var(--navy-primary); margin-bottom: 2.5rem;">[ Dr. Thomas Mathew ]</div>
+            <span style="display: block; font-size: 0.82rem; color: var(--text-dark); border-top: 1px solid var(--text-dark); padding-top: 0.3rem;">RASAP Coordinator Signature</span>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="font-weight: 700; color: var(--navy-primary); margin-bottom: 2.5rem;">[ Registrar / Principal ]</div>
+            <span style="display: block; font-size: 0.82rem; color: var(--text-dark); border-top: 1px solid var(--text-dark); padding-top: 0.3rem;">Institutional Seal &amp; Approval</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="margin-top: 0;">
+    <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+      <div>&copy; 2026 RASAP - Rajagiri Study Abroad Program. All rights reserved.</div>
+      <div>Rajagiri College of Social Sciences, Kochi.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

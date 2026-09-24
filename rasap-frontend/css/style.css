@@ -1,0 +1,630 @@
+/* ==========================================================================
+   RASAP - Rajagiri Study Abroad Program
+   Rajagiri College of Social Sciences, Kochi
+   Global Stylesheet (style.css)
+   Strict HTML5 + CSS3 Architecture
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & CSS VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --navy-primary: #0C134F;
+  --navy-dark: #070B30;
+  --navy-light: #19237D;
+  --navy-subtle: #232D80;
+  
+  --cream-primary: #E1DCC9;
+  --cream-light: #F7F5EE;
+  --cream-soft: #EFECE1;
+  --cream-dark: #D4CCB3;
+
+  /* Neutral Surface & Text Colors */
+  --bg-main: #F8FAF9;
+  --white: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  /* Status Colors (Academic & Institutional) */
+  --status-approved-bg: #E6F4EA;
+  --status-approved-text: #137333;
+  --status-pending-bg: #FEF7E0;
+  --status-pending-text: #B06000;
+  --status-rejected-bg: #FCE8E6;
+  --status-rejected-text: #C5221F;
+  --status-progress-bg: #E8F0FE;
+  --status-progress-text: #1A73E8;
+
+  /* Layout & Borders */
+  --border-color: #DDE3EA;
+  --border-light: #E2E8F0;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(12, 19, 79, 0.05);
+  --shadow-md: 0 4px 12px rgba(12, 19, 79, 0.08);
+  --shadow-lg: 0 10px 25px rgba(12, 19, 79, 0.12);
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--navy-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--navy-light);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--navy-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.15rem; }
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-cream {
+  color: var(--cream-primary);
+}
+
+.text-navy {
+  color: var(--navy-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. LAYERED INSTITUTIONAL HEADER & TOP UTILITY BAR
+   -------------------------------------------------------------------------- */
+.top-utility-bar {
+  background-color: var(--navy-primary);
+  color: var(--cream-primary);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(225, 220, 201, 0.2);
+}
+
+.utility-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.utility-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.utility-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.utility-item strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.utility-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.utility-badge {
+  background-color: rgba(225, 220, 201, 0.15);
+  color: var(--cream-primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  border: 1px solid rgba(225, 220, 201, 0.3);
+}
+
+/* Main Brand Header */
+.main-header {
+  background-color: var(--white);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.rasap-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  /* Preservation of original logo colors including yellow tassel */
+  background: transparent;
+}
+
+.brand-text h1 {
+  font-size: 1.5rem;
+  color: var(--navy-primary);
+  margin-bottom: 0.1rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-text p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. MAIN NAVIGATION (NAVY & CREAM CSS TRANSITIONS)
+   -------------------------------------------------------------------------- */
+.main-nav-bar {
+  background-color: var(--navy-primary);
+  border-top: 1px solid var(--navy-dark);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.9rem 1.15rem;
+  color: var(--cream-primary);
+  font-weight: 500;
+  font-size: 0.92rem;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover {
+  background-color: rgba(225, 220, 201, 0.12);
+  color: var(--white);
+  border-bottom-color: var(--cream-primary);
+}
+
+.nav-link.active {
+  background-color: rgba(225, 220, 201, 0.18);
+  color: var(--white);
+  font-weight: 600;
+  border-bottom-color: var(--cream-primary);
+}
+
+.nav-portal-btn {
+  background-color: var(--cream-primary);
+  color: var(--navy-primary);
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+  margin-left: 1rem;
+  transition: all 0.2s ease;
+}
+
+.nav-portal-btn:hover {
+  background-color: var(--white);
+  color: var(--navy-primary);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   6. LAYOUT & CONTAINERS
+   -------------------------------------------------------------------------- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--navy-primary);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--cream-primary);
+  border-radius: 2px;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. BUTTONS & UI ACCENTS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--navy-primary);
+  color: var(--cream-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--navy-light);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--cream-primary);
+  color: var(--navy-primary);
+  border-color: var(--cream-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--navy-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--navy-primary);
+  border-color: var(--navy-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--navy-primary);
+  color: var(--cream-primary);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. CARDS & GRID COMPONENTS
+   -------------------------------------------------------------------------- */
+.card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--cream-primary);
+}
+
+.card-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  background-color: var(--cream-primary);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. STATUS BADGES
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.badge-approved, .badge-verified {
+  background-color: var(--status-approved-bg);
+  color: var(--status-approved-text);
+  border: 1px solid rgba(19, 115, 51, 0.2);
+}
+
+.badge-pending {
+  background-color: var(--status-pending-bg);
+  color: var(--status-pending-text);
+  border: 1px solid rgba(176, 96, 0, 0.2);
+}
+
+.badge-rejected {
+  background-color: var(--status-rejected-bg);
+  color: var(--status-rejected-text);
+  border: 1px solid rgba(197, 34, 31, 0.2);
+}
+
+.badge-progress {
+  background-color: var(--status-progress-bg);
+  color: var(--status-progress-text);
+  border: 1px solid rgba(26, 115, 232, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   10. SEMANTIC TABLES
+   -------------------------------------------------------------------------- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.data-table th {
+  background-color: var(--navy-primary);
+  color: var(--cream-primary);
+  padding: 0.9rem 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--navy-dark);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-dark);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #FAFCFB;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--cream-light);
+}
+
+/* --------------------------------------------------------------------------
+   11. FOOTER
+   -------------------------------------------------------------------------- */
+.main-footer {
+  background-color: var(--navy-primary);
+  color: var(--cream-primary);
+  padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--cream-primary);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-brand h4 {
+  color: var(--cream-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand p {
+  color: #B4BEC9;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--cream-primary);
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: var(--cream-primary);
+  font-size: 0.88rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(225, 220, 201, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: #A0ABC0;
+}

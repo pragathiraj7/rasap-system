@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Access & Login | RASAP - Rajagiri Study Abroad Program</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="login-body">
+
+  <div class="login-card">
+    <div class="login-brand">
+      <img src="assets/rasap-logo.png" alt="RASAP Logo - Rajagiri Study Abroad Program" class="login-logo">
+      <h2>Welcome to RASAP Portal</h2>
+      <p>Rajagiri Study Abroad Program &bull; RCSS Kochi</p>
+    </div>
+
+    <!-- Static Login Form Mockup (Frontend Prototype) -->
+    <form action="student-dashboard.html" method="GET">
+      
+      <div class="form-group">
+        <label for="userRole">Select Access Role</label>
+        <select id="userRole" class="form-select" required>
+          <option value="student" selected>Student Access</option>
+          <option value="faculty">Faculty Member</option>
+          <option value="mentor">Faculty Mentor</option>
+          <option value="coordinator">RASAP Coordinator</option>
+          <option value="parent">Parent (View-Only)</option>
+          <option value="admin">System Administrator</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username or Institutional Email</label>
+        <input type="email" id="username" class="form-control" placeholder="e.g. student@rajagiri.edu" value="alex.varghese@rajagiri.edu" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Enter your portal password" value="••••••••••••" required>
+      </div>
+
+      <div class="form-group" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-weight: 400; font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+          <input type="checkbox" checked style="margin-right: 0.4rem;"> Remember login session
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem; margin-top: 0.5rem;">
+        Sign In to RASAP Portal &rarr;
+      </button>
+
+      <div class="form-footer">
+        <a href="#">Forgot Password?</a>
+        <a href="index.html">&larr; Back to Home</a>
+      </div>
+
+    </form>
+
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.78rem; color: var(--text-muted);">
+      <p style="margin-bottom: 0;">Static Frontend Prototype &bull; PHP 8.x + MySQL backend connectivity ready.</p>
+    </div>
+  </div>
+
+</body>
+</html>

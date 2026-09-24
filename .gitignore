@@ -1,0 +1,11 @@
+# Exclude uploaded files
+assets/uploads/*
+!assets/uploads/.gitkeep
+
+# Exclude OS files
+.DS_Store
+Thumbs.db
+
+# Exclude IDE settings
+.vscode/
+.idea/
