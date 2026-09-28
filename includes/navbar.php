@@ -5,7 +5,7 @@
  * Rajagiri College of Social Sciences (Autonomous), Kochi
  * --------------------------------------------------------------------------
  * Renders role-specific top navigation menus for Student, Faculty, Coordinator,
- * and Parent views.
+ * and Parent views. Fully aligned with Proposal Sections 4, 5 & 7.
  */
 
 if (!isset($currentRole)) {
@@ -32,17 +32,17 @@ $activePage = basename($_SERVER['PHP_SELF']);
         </li>
         <li class="nav-item">
           <a href="<?php echo $basePath; ?>student/edocet-upload.php" class="nav-link <?php echo $activePage === 'edocet-upload.php' ? 'active' : ''; ?>">
-            📤 E-Docet Upload Form
+            📤 Upload Certificate
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo $basePath; ?>student/dashboard.php#academic-profile" class="nav-link">
-            🎓 3-Year Profile Overview
+          <a href="<?php echo $basePath; ?>student/activity-submit.php" class="nav-link <?php echo $activePage === 'activity-submit.php' ? 'active' : ''; ?>">
+            🏆 Submit Activity
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo $basePath; ?>student/dashboard.php#fee-status" class="nav-link">
-            💳 Fee Status &amp; Clearances
+          <a href="<?php echo $basePath; ?>student/exit-profile.php" class="nav-link <?php echo $activePage === 'exit-profile.php' ? 'active' : ''; ?>">
+            🎓 3rd-Year Exit Profile
           </a>
         </li>
 
@@ -55,12 +55,17 @@ $activePage = basename($_SERVER['PHP_SELF']);
         </li>
         <li class="nav-item">
           <a href="<?php echo $basePath; ?>coordinator/document-review.php" class="nav-link <?php echo $activePage === 'document-review.php' ? 'active' : ''; ?>">
-            📋 Document Review Workflow
+            📋 Document Review Queue
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo $basePath; ?>coordinator/dashboard.php#pending-alerts" class="nav-link">
-            🔔 Pending Reviews Alert
+          <a href="<?php echo $basePath; ?>coordinator/mentoring.php" class="nav-link <?php echo $activePage === 'mentoring.php' ? 'active' : ''; ?>">
+            🤝 Faculty Mentoring Logs
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?php echo $basePath; ?>student/exit-profile.php" class="nav-link <?php echo $activePage === 'exit-profile.php' ? 'active' : ''; ?>">
+            📄 Exit-Interview Report
           </a>
         </li>
 
@@ -78,7 +83,7 @@ $activePage = basename($_SERVER['PHP_SELF']);
         </li>
         <li class="nav-item">
           <a href="<?php echo $basePath; ?>parent/dashboard.php#academic-timeline" class="nav-link">
-            📅 Academic Timeline
+            🤝 Mentor Summaries
           </a>
         </li>
       <?php endif; ?>

@@ -5,7 +5,7 @@
  * Rajagiri College of Social Sciences (Autonomous), Kochi
  * --------------------------------------------------------------------------
  * Renders Quick Links panel with external institutional links to https://rajagiri.edu
- * and https://rasap.rajagiri.edu alongside essential portal shortcuts.
+ * and https://rasap.rajagiri.edu alongside essential proposal shortcuts.
  */
 
 if (!isset($basePath)) {
@@ -39,33 +39,39 @@ if (!isset($basePath)) {
         <span>Academic Regulations</span>
       </a>
     </li>
-    <li class="quick-link-item">
-      <a href="https://rajagiri.edu/international" target="_blank" rel="noopener noreferrer">
-        <span class="quick-link-icon">🌍</span>
-        <span>Partner Universities List</span>
-      </a>
-    </li>
   </ul>
 
-  <!-- Internal Navigation Shortcuts -->
-  <div class="sidebar-title">⚡ Portal System Shortcuts</div>
+  <!-- Internal Navigation Proposal Shortcuts -->
+  <div class="sidebar-title">⚡ Proposal System Modules</div>
   <ul class="quick-links-list mb-3">
+    <li class="quick-link-item">
+      <a href="<?php echo $basePath; ?>student/exit-profile.php">
+        <span class="quick-link-icon">🎓</span>
+        <span>3rd-Year Exit Profile</span>
+      </a>
+    </li>
     <li class="quick-link-item">
       <a href="<?php echo $basePath; ?>student/edocet-upload.php">
         <span class="quick-link-icon">📄</span>
-        <span>Upload New Certificate</span>
+        <span>Upload Certificate</span>
+      </a>
+    </li>
+    <li class="quick-link-item">
+      <a href="<?php echo $basePath; ?>student/activity-submit.php">
+        <span class="quick-link-icon">🏆</span>
+        <span>Submit Activity</span>
+      </a>
+    </li>
+    <li class="quick-link-item">
+      <a href="<?php echo $basePath; ?>coordinator/mentoring.php">
+        <span class="quick-link-icon">🤝</span>
+        <span>Mentoring Maintenance</span>
       </a>
     </li>
     <li class="quick-link-item">
       <a href="<?php echo $basePath; ?>coordinator/document-review.php">
         <span class="quick-link-icon">🔍</span>
         <span>Review Queue</span>
-      </a>
-    </li>
-    <li class="quick-link-item">
-      <a href="<?php echo $basePath; ?>coordinator/dashboard.php">
-        <span class="quick-link-icon">📊</span>
-        <span>Department Analytics</span>
       </a>
     </li>
     <li class="quick-link-item">

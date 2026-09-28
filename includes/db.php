@@ -4,8 +4,8 @@
  * Database Connection & PDO Wrapper (db.php)
  * Rajagiri College of Social Sciences (Autonomous), Kochi
  * --------------------------------------------------------------------------
- * Strictly adheres to 3NF Database Schema for RASAP System.
- * Supports MySQL PDO with seamless fallback to SQLite/Session DB for instant testing under XAMPP.
+ * Strictly adheres to Proposal Report & 3NF Database Schema for RASAP System.
+ * Supports MySQL PDO with seamless fallback to SQLite/Session DB for XAMPP.
  */
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -53,12 +53,12 @@ function getDBConnection() {
 }
 
 /**
- * Initializes 3NF Schema Tables and Seed Data
+ * Initializes 3NF Schema Tables and Seed Data based on Proposal Domains
  */
 function initialize3NFSchema($pdo) {
     if (!$pdo) return;
 
-    // 1. Departments Table (1NF / 2NF / 3NF)
+    // 1. Departments Table
     $pdo->exec("CREATE TABLE IF NOT EXISTS departments (
         department_id INTEGER PRIMARY KEY AUTOINCREMENT,
         dept_name VARCHAR(100) NOT NULL,
@@ -85,9 +85,8 @@ function initialize3NFSchema($pdo) {
         batch_year VARCHAR(20) NOT NULL,
         year_of_study INTEGER NOT NULL DEFAULT 1,
         parent_user_id INTEGER,
-        fee_status VARCHAR(20) DEFAULT 'Paid',
-        academic_score DECIMAL(3,2) DEFAULT 3.85,
-        attendance_pct DECIMAL(5,2) DEFAULT 94.50,
+        academic_score DECIMAL(3,2) DEFAULT 3.88,
+        attendance_pct DECIMAL(5,2) DEFAULT 96.20,
         FOREIGN KEY (user_id) REFERENCES users(user_id),
         FOREIGN KEY (department_id) REFERENCES departments(department_id)
     )");
@@ -106,6 +105,35 @@ function initialize3NFSchema($pdo) {
         reviewed_at DATETIME,
         reviewed_by INTEGER,
         FOREIGN KEY (student_id) REFERENCES students(student_id)
+    )");
+
+    // 5. Activities Table (Proposal Data Domains: Co-curricular & Extra-curricular)
+    $pdo->exec("CREATE TABLE IF NOT EXISTS activities (
+        activity_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_id INTEGER NOT NULL,
+        title VARCHAR(150) NOT NULL,
+        domain VARCHAR(50) NOT NULL, -- Co-curricular, Extra-curricular
+        category VARCHAR(50) NOT NULL, -- Seminar, Competition, Volunteering, Internship
+        activity_date DATE,
+        role_played VARCHAR(100),
+        evidence_file VARCHAR(255),
+        description TEXT,
+        status VARCHAR(20) DEFAULT 'Pending',
+        remarks TEXT,
+        submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )");
+
+    // 6. Mentoring Logs Table (Proposal Section 5.2 & 5.3)
+    $pdo->exec("CREATE TABLE IF NOT EXISTS mentoring_logs (
+        log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_id INTEGER NOT NULL,
+        faculty_id INTEGER NOT NULL,
+        session_date DATE NOT NULL,
+        observations TEXT NOT NULL,
+        action_items TEXT,
+        followup_status VARCHAR(50) DEFAULT 'Pending',
+        is_shareable INTEGER DEFAULT 1, -- 1 = Visible to parent, 0 = Private mentor note
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )");
 
     // Seed Initial Departments if empty
@@ -133,8 +161,8 @@ function initialize3NFSchema($pdo) {
             ('parent_varghese', '$passHash', 'parent', 'varghese.parent@gmail.com', 'Varghese K.')");
 
         // Link student record
-        $pdo->exec("INSERT INTO students (user_id, department_id, rasap_id, batch_year, year_of_study, parent_user_id, fee_status, academic_score, attendance_pct) VALUES
-            (1, 1, 'RASAP20260482', '2024-2027', 2, 6, 'Paid', 3.88, 96.20)");
+        $pdo->exec("INSERT INTO students (user_id, department_id, rasap_id, batch_year, year_of_study, parent_user_id, academic_score, attendance_pct) VALUES
+            (1, 1, 'RASAP20260482', '2024-2027', 2, 6, 3.88, 96.20)");
 
         // Seed Sample Certificates
         $pdo->exec("INSERT INTO edocets (student_id, title, category, file_path, description, status, remarks, uploaded_at) VALUES
@@ -146,7 +174,7 @@ function initialize3NFSchema($pdo) {
 }
 
 /**
- * Ensures session initialization and mock data fallback
+ * Returns document list with mock session fallback
  */
 function getMockDocumentList() {
     if (!isset($_SESSION['mock_edocets'])) {
@@ -224,6 +252,86 @@ function getMockDocumentList() {
         ];
     }
     return $_SESSION['mock_edocets'];
+}
+
+/**
+ * Returns Co-curricular & Extra-curricular Activities List
+ */
+function getMockActivitiesList() {
+    if (!isset($_SESSION['mock_activities'])) {
+        $_SESSION['mock_activities'] = [
+            [
+                'activity_id' => 201,
+                'student_name' => 'Alex Varghese',
+                'rasap_id' => 'RASAP20260482',
+                'title' => 'National AI & Cloud Computing Symposium',
+                'domain' => 'Co-curricular',
+                'category' => 'Conference / Seminar',
+                'activity_date' => '2026-01-20',
+                'role_played' => 'Paper Presenter',
+                'status' => 'Approved',
+                'remarks' => 'Presented research paper on AI security.'
+            ],
+            [
+                'activity_id' => 202,
+                'student_name' => 'Alex Varghese',
+                'rasap_id' => 'RASAP20260482',
+                'title' => 'Rajagiri Whole Person Volunteering Drive',
+                'domain' => 'Extra-curricular',
+                'category' => 'Volunteering / Community',
+                'activity_date' => '2026-02-10',
+                'role_played' => 'Student Lead Coordinator',
+                'status' => 'Approved',
+                'remarks' => 'Led 50-member rural literacy initiative.'
+            ],
+            [
+                'activity_id' => 203,
+                'student_name' => 'Alex Varghese',
+                'rasap_id' => 'RASAP20260482',
+                'title' => 'Inter-University Coding Hackathon 2026',
+                'domain' => 'Co-curricular',
+                'category' => 'Competition',
+                'activity_date' => '2026-03-05',
+                'role_played' => 'First Runner Up',
+                'status' => 'Approved',
+                'remarks' => 'Awarded 2nd Prize in Full Stack Track.'
+            ]
+        ];
+    }
+    return $_SESSION['mock_activities'];
+}
+
+/**
+ * Returns Mentoring Logs List
+ */
+function getMockMentoringLogs() {
+    if (!isset($_SESSION['mock_mentoring'])) {
+        $_SESSION['mock_mentoring'] = [
+            [
+                'log_id' => 301,
+                'student_name' => 'Alex Varghese',
+                'rasap_id' => 'RASAP20260482',
+                'mentor_name' => 'Dr. Thomas Paul',
+                'session_date' => '2026-03-10',
+                'observations' => 'Alex is demonstrating excellent academic consistency (CGPA 3.88). IELTS Band 8.0 target achieved.',
+                'action_items' => 'Finalize partner university application choice for Fall semester.',
+                'followup_status' => 'Completed',
+                'is_shareable' => 1
+            ],
+            [
+                'log_id' => 302,
+                'student_name' => 'Alex Varghese',
+                'rasap_id' => 'RASAP20260482',
+                'mentor_name' => 'Dr. Thomas Paul',
+                'session_date' => '2025-12-18',
+                'observations' => 'Completed all semester 3 coursework with distinction. Attendance maintained above 95%.',
+                'action_items' => 'Upload passport scan and complete Infosys internship documentation.',
+                'followup_status' => 'Completed',
+                'is_shareable' => 1
+            ]
+        ];
+    }
+    return $_SESSION['mock_mentoring'];
 }
 
 /**
